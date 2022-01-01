@@ -6,7 +6,7 @@ module.exports = {
       const id = args.shift()
       if (id) {
         try {
-          const member = await message.guild.members.fetch(id)
+          const member = message.guild.available && await message.guild.members.fetch(id)
           user = member.user
         } catch (e) {
           throw new Error('Аргументом должен быть валидный ID участника гильдии')
